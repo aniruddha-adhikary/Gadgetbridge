@@ -36,6 +36,16 @@ public class LanguageUtilsTest extends TestBase {
     }
 
     @Test
+    public void testStringTransliterateBengali() throws Exception {
+        //input with cyrillic and diacritic letters
+        String input = "অনিরুদ্ধ";
+        String output = LanguageUtils.transliterate(input);
+        String result = "oniruddho";
+
+        assertEquals("Transliteration failed", result, output);
+    }
+
+    @Test
     public void testTransliterateOption() throws Exception {
         setDefaultTransliteration();
         assertFalse("Transliteration option fail! Expected 'Off' by default, but result is 'On'", LanguageUtils.transliterate());
